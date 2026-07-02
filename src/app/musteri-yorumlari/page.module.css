@@ -1,0 +1,117 @@
+.main {
+  padding-top: 110px;
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+.pageHeader {
+  background-color: #f7ede8;
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.pageTitle {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.breadcrumb a {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--brand-primary);
+}
+
+.breadcrumb span {
+  margin: 0 0.5rem;
+}
+
+.reviewsSection {
+  padding: 5rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #e2dcd7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.avatar svg {
+  width: 40px;
+  height: 40px;
+  color: #8b7d74;
+}
+
+.name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.25rem;
+}
+
+.profession {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.reviewText {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

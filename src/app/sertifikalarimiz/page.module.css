@@ -1,0 +1,49 @@
+.main {
+  padding-top: 110px; /* Offset for topbar + navbar */
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.pageHeader {
+  background-color: #f7ede8; /* Matching the site's soft header background */
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.pageTitle {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.breadcrumb a {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--brand-primary);
+}
+
+.breadcrumb span {
+  margin: 0 0.5rem;
+}
+
+.contentSection {
+  padding: 6rem 0;
+  background-color: white;
+  text-align: center;
+}
+
+.comingSoonText {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--brand-primary); /* Gold color for Yakında */
+  letter-spacing: 2px;
+}
