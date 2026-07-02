@@ -1,12 +1,15 @@
 import styles from './page.module.css';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+
+const AvatarIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+  </svg>
+);
 
 export default function MusteriYorumlari() {
-  const AvatarIcon = () => (
-    <svg viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-    </svg>
-  );
+  const t = useTranslations('Pages');
 
   return (
     <div className={styles.main}>
@@ -15,9 +18,9 @@ export default function MusteriYorumlari() {
           <div className={styles.breadcrumb}>
             <Link href="/">Anasayfa</Link>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            <span>Müşterilerimizin Yorumları</span>
+            <span>{t('yorumlarTitle')}</span>
           </div>
-          <h1 className={styles.pageTitle}>Müşterilerimizin <span>Yorumları</span></h1>
+          <h1 className={styles.pageTitle}>{t('yorumlarTitle').split(' ').map((w,i,arr) => i === arr.length-1 ? <span key={i}>{w}</span> : w + ' ')}</h1>
         </div>
       </header>
 
@@ -30,10 +33,10 @@ export default function MusteriYorumlari() {
               <div className={styles.avatar}>
                 <AvatarIcon />
               </div>
-              <h3 className={styles.name}>Doğukan Ülker</h3>
-              <div className={styles.profession}>Mağaza Yöneticisi</div>
+              <h3 className={styles.name}>{t('yorum1Name')}</h3>
+              <div className={styles.profession}>{t('yorum1Prof')}</div>
               <p className={styles.reviewText}>
-                Erken yaşta saç dökülmesi sorunu yaşamaya başladım. Bu yüzden kendimi çok mutsuz hissediyordum. Çok araştırma yaparak Uşak Saç Protez firması ile tanıştım. Kalite ve hizmet anlayışlarından çok memnun kaldım. Beni yeniden saçlarıma kavuşturdular.
+                {t('yorum1Desc')}
               </p>
             </div>
 
@@ -42,10 +45,10 @@ export default function MusteriYorumlari() {
               <div className={styles.avatar}>
                 <AvatarIcon />
               </div>
-              <h3 className={styles.name}>Miraç Özay</h3>
-              <div className={styles.profession}>Öğrenci</div>
+              <h3 className={styles.name}>{t('yorum2Name')}</h3>
+              <div className={styles.profession}>{t('yorum2Prof')}</div>
               <p className={styles.reviewText}>
-                23 yaşındayım. 3 yıldır saç dökülmesi sorunu yaşıyordum. Protez saç yaptırmayı düşündüm fakat cesaret edemedim. Kliniğe gidip ön görüşme yaptığımda tüm şüphelerim gitti. Hayalini kurduğum saçlara sahip oldum. Keşke beklemeden yaptırsaydım diyorum.
+                {t('yorum2Desc')}
               </p>
             </div>
 
@@ -54,10 +57,10 @@ export default function MusteriYorumlari() {
               <div className={styles.avatar}>
                 <AvatarIcon />
               </div>
-              <h3 className={styles.name}>Doğukan Aydın</h3>
-              <div className={styles.profession}>Profesyonel Sporcu</div>
+              <h3 className={styles.name}>{t('yorum3Name')}</h3>
+              <div className={styles.profession}>{t('yorum3Prof')}</div>
               <p className={styles.reviewText}>
-                Ben aktif ve çok hareketli bir yaşamı olan biriyim. Saç sorunu yaşıyordum ve saçlarım sürekli canımı sıkıyordu. Protez saç uygulaması ile aynadaki yeni görüntüm beni inanılmaz mutlu etti. Kaybettiğim özgüvenimi çok kısa bir sürede geri kazandım.
+                {t('yorum3Desc')}
               </p>
             </div>
 
@@ -66,10 +69,10 @@ export default function MusteriYorumlari() {
               <div className={styles.avatar}>
                 <AvatarIcon />
               </div>
-              <h3 className={styles.name}>Burçin Bildik</h3>
-              <div className={styles.profession}>Sanatçı</div>
+              <h3 className={styles.name}>{t('yorum4Name')}</h3>
+              <div className={styles.profession}>{t('yorum4Prof')}</div>
               <p className={styles.reviewText}>
-                Dış görünüşümde yapılan muhteşem değişiklik, hayat yolunda beni daha mutlu ve pozitif bir insan yaptı. Ekrandaki duruşum bile değişti. Bana bunu sağlayan Uşak Saç Protez ailesine sonsuz teşekkürler.
+                {t('yorum4Desc')}
               </p>
             </div>
 

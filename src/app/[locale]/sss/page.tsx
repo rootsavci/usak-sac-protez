@@ -1,8 +1,10 @@
 import styles from './page.module.css';
 import Link from 'next/link';
 import FAQAccordion from '@/components/FAQAccordion';
+import { useTranslations } from 'next-intl';
 
 export default function SSS() {
+  const t = useTranslations('Pages');
   return (
     <div className={styles.main}>
       <header className={styles.pageHeader}>
@@ -10,9 +12,9 @@ export default function SSS() {
           <div className={styles.breadcrumb}>
             <Link href="/">Anasayfa</Link>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            <span>Sıkça Sorulan Sorular</span>
+            <span>{t('sssTitle')}</span>
           </div>
-          <h1 className={styles.pageTitle}>Sıkça Sorulan <span>Sorular</span></h1>
+          <h1 className={styles.pageTitle}>{t('sssTitle').split(' ').map((w,i,arr) => i === arr.length-1 ? <span key={i}>{w}</span> : w + ' ')}</h1>
         </div>
       </header>
 

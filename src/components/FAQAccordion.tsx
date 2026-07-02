@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from 'next-intl';
 
 import { useState } from 'react';
 import styles from './FAQAccordion.module.css';
@@ -8,58 +9,61 @@ interface FAQ {
   answer: string;
 }
 
-const faqs: FAQ[] = [
+const getFaqs = (t: (key: string) => string): FAQ[] => [
   {
-    question: "PROTEZ SAÇ NEDİR?",
-    answer: "Kişinin saç dökülmesi yaşadığı bölgelere özel olarak hazırlanan, nefes alabilen ince bir alt yapı üzerine %100 gerçek insan saçlarının tek tek işlenmesiyle elde edilen estetik ve kalıcı bir çözümdür."
+    question: t('faqQ1'),
+    answer: t('faqA1')
   },
   {
-    question: "PROTEZ SAÇ NASIL ORTAYA ÇIKMIŞTIR?",
-    answer: "İlk olarak Hollywood sinemasında aktörlerin farklı rollere hızlıca bürünebilmesi için geliştirilmiş, daha sonra sağladığı kusursuz doğallık sayesinde tüm dünyada saç dökülmesi yaşayanlar için vazgeçilmez bir estetik çözüm halini almıştır."
+    question: t('faqQ2'),
+    answer: t('faqA2')
   },
   {
-    question: "PERUKTAN FARKI NEDİR?",
-    answer: "Peruk kafanıza bir şapka gibi takılır ve her an düşme riski taşır. Protez saç ise özel medikal solüsyonlarla cildinize sabitlenir; onunla yüzebilir, spor yapabilir, duş alabilir ve tamamen kendi saçınız gibi hissedebilirsiniz. Ayrıca protez saç nefes alır, peruk almaz."
+    question: t('faqQ3'),
+    answer: t('faqA3')
   },
   {
-    question: "SAĞLIKLI MIDIR?",
-    answer: "Evet, tamamen sağlıklıdır. Kullandığımız alt yapılar ve sabitleyici medikal bantlar/solüsyonlar dermatolojik testlerden geçmiştir ve cildin hava ve su geçirmesine olanak tanır."
+    question: t('faqQ4'),
+    answer: t('faqA4')
   },
   {
-    question: "DİNİ AÇIDAN BİR ENGEL VAR MIDIR?",
-    answer: "Protez saçın alt yapısı hava ve su geçirgenliğine sahip olduğu için dini açıdan abdest veya gusül abdesti almaya engel teşkil etmediği İslam alimleri tarafından belirtilmiştir."
+    question: t('faqQ5'),
+    answer: t('faqA5')
   },
   {
-    question: "YAPIŞTIRMA MI?",
-    answer: "Evet, cilde zarar vermeyen, dermatolojik testlerden geçmiş özel medikal bantlar ve sıvı yapıştırıcılar kullanılarak sabitlenir. Bu işlem tamamen acısız ve güvenlidir."
+    question: t('faqQ6'),
+    answer: t('faqA6')
   },
   {
-    question: "DAYANIKLILIK SÜRESİ NEDİR?",
-    answer: "Seçilen alt yapı modeline ve kişinin kullanım alışkanlıklarına bağlı olarak bir protez saçın ömrü ortalama 1 ile 3 yıl arasında değişmektedir."
+    question: t('faqQ7'),
+    answer: t('faqA7')
   },
   {
-    question: "BAKIM GEREKTİRİR Mİ?",
-    answer: "Kendi saçınız gibi periyodik bakıma ihtiyaç duyar. Ortalama 3-4 haftada bir uzman merkezimizde veya evde kendi imkanlarınızla bakımının yapılması, alt yapının temizlenmesi ve bantların yenilenmesi gerekir."
+    question: t('faqQ8'),
+    answer: t('faqA8')
   },
   {
-    question: "SAÇLAR UZAR MI?",
-    answer: "Protez saç, cansız %100 insan saçından üretildiği için uzamaz. Bu nedenle ilk kesim ve stil çok önemlidir; uzman stilistlerimiz size en uygun modeli tasarlar. Altta kalan kendi saçlarınız ise normal uzamaya devam eder."
+    question: t('faqQ9'),
+    answer: t('faqA9')
   },
   {
-    question: "SPOR YAPABİLİR MİYİM?",
-    answer: "Kesinlikle! Protez saçınızla profesyonel spor yapabilir, havuza veya denize girebilir, futbol oynayabilir, fön çekebilirsiniz. Hiçbir kısıtlama yaşamazsınız."
+    question: t('faqQ10'),
+    answer: t('faqA10')
   },
   {
-    question: "İSTEDİĞİM GİBİ TARAMA ŞEKİL VERME?",
-    answer: "Evet, %100 gerçek insan saçı kullanıldığı için fön çekebilir, maşa yapabilir, jöle veya wax kullanabilir ve istediğiniz yöne tarayarak şekil verebilirsiniz."
+    question: t('faqQ11'),
+    answer: t('faqA11')
   },
   {
-    question: "PROTEZ SAÇ ÇOCUKLAR İÇİN UYGUN MUDUR?",
-    answer: "Evet, özellikle kemoterapi gören, alopesi hastası olan veya kaza sonucu saç kaybı yaşayan çocuklarımız için özel olarak üretilen, ekstra hassas ciltlere uygun çocuk protez saç uygulamalarımız mevcuttur."
+    question: t('faqQ12'),
+    answer: t('faqA12')
   }
 ];
 
 export default function FAQAccordion() {
+  const t = useTranslations('Pages');
+  const faqs = getFaqs(t);
+
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggleAccordion = (index: number) => {

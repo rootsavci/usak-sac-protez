@@ -1,7 +1,9 @@
 import styles from './page.module.css';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 export default function OncesiSonrasi() {
+  const t = useTranslations('Pages');
   return (
     <div className={styles.main}>
       <header className={styles.pageHeader}>
@@ -9,9 +11,9 @@ export default function OncesiSonrasi() {
           <div className={styles.breadcrumb}>
             <Link href="/">Anasayfa</Link>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            <span>Müşteriler</span>
+            <span>{t('musterilerTitle')}</span>
           </div>
-          <h1 className={styles.pageTitle}><span>Müşteriler</span></h1>
+          <h1 className={styles.pageTitle}><span>{t('musterilerTitle')}</span></h1>
         </div>
       </header>
 
@@ -22,14 +24,14 @@ export default function OncesiSonrasi() {
             {/* Card 1 */}
             <div className={styles.card}>
               <div className={styles.imagePlaceholder}>
-                <span className={styles.placeholderText}>YAKINDA</span>
+                <span className={styles.placeholderText}>{t('yakinda')}</span>
               </div>
               <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>Ahmet Y. - İş İnsanı</h3>
+                <h3 className={styles.cardTitle}>{t('oncesi1Title')}</h3>
                 <p className={styles.cardDesc}>
-                  "Saç dökülmesi iş hayatımdaki özgüvenimi etkilemeye başlamıştı. Uşak Saç Protez sayesinde hayalimdeki o gür saçlara tamamen doğal bir şekilde yeniden kavuştum."
+                  {t('oncesi1Desc')}
                 </p>
-                <button className={styles.cardBtn} disabled style={{opacity: 0.5, cursor: 'not-allowed'}}>Detayları İncele</button>
+                <button className={styles.cardBtn} disabled style={{opacity: 0.5, cursor: 'not-allowed'}}>{t('detaylariIncele')}</button>
               </div>
             </div>
 
@@ -39,9 +41,9 @@ export default function OncesiSonrasi() {
                 <span className={styles.placeholderText}>YAKINDA</span>
               </div>
               <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>Mehmet K. - Öğretmen</h3>
+                <h3 className={styles.cardTitle}>{t('oncesi2Title')}</h3>
                 <p className={styles.cardDesc}>
-                  "Acaba dışarıdan belli olur mu korkum vardı. Ancak uygulama sonrası o kadar doğal oldu ki, eşim bile ilk bakışta farkı anlamadı. Çok teşekkürler."
+                  {t('oncesi2Desc')}
                 </p>
                 <button className={styles.cardBtn} disabled style={{opacity: 0.5, cursor: 'not-allowed'}}>Detayları İncele</button>
               </div>
@@ -53,9 +55,9 @@ export default function OncesiSonrasi() {
                 <span className={styles.placeholderText}>YAKINDA</span>
               </div>
               <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>Ayşe T. - Bankacı</h3>
+                <h3 className={styles.cardTitle}>{t('oncesi3Title')}</h3>
                 <p className={styles.cardDesc}>
-                  "Kadın tipi dökülme psikolojimi çok bozmuştu. Ön bölgedeki seyrelmelerim harika bir tasarımla kapatıldı. Artık aynalara gülerek bakabiliyorum."
+                  {t('oncesi3Desc')}
                 </p>
                 <button className={styles.cardBtn} disabled style={{opacity: 0.5, cursor: 'not-allowed'}}>Detayları İncele</button>
               </div>
@@ -67,9 +69,9 @@ export default function OncesiSonrasi() {
                 <span className={styles.placeholderText}>YAKINDA</span>
               </div>
               <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>Caner B. - Sporcu</h3>
+                <h3 className={styles.cardTitle}>{t('oncesi4Title')}</h3>
                 <p className={styles.cardDesc}>
-                  "Antrenmanlarda terlediğimde veya duş alırken sorun yaşarım sanıyordum. Aksine kendi saçımmış gibi rahatça kullanıyorum, en ufak bir kayma bile yok."
+                  {t('oncesi4Desc')}
                 </p>
                 <button className={styles.cardBtn} disabled style={{opacity: 0.5, cursor: 'not-allowed'}}>Detayları İncele</button>
               </div>

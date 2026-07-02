@@ -3,30 +3,34 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './HeroSlider.module.css';
+import { useTranslations } from 'next-intl';
 
-const slides = [
-  {
-    id: 2,
-    image: "/hero-campaign.png",
-    subtitle: "KAMPANYALAR",
-    title: "İNSTAGRAM'DA BİZİ TAKİP EDİN",
-    desc: "Kampanya ve detaylar için İnstagram hesabımızı takip etmeyi unutmayın @usaksacprotez",
-    btnText: "İNSTAGRAM'A GİT",
-    btnLink: "https://www.instagram.com/usaksacprotez/"
-  },
-  {
-    id: 3,
-    image: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=1920&q=80",
-    subtitle: "ÖZGÜVENİNİZİ YENİDEN KEŞFEDİN",
-    title: "DOĞAL VE KALICI ÇÖZÜM",
-    desc: "Uşak'ta klinik standartlarında, kişiye özel modern saç protezi uygulamaları",
-    btnText: "BİZE ULAŞIN",
-    btnLink: "https://wa.me/905425209464"
-  }
-];
+
 
 export default function HeroSlider() {
+  const t = useTranslations('Home');
   const [current, setCurrent] = useState(0);
+
+  const slides = [
+    {
+      id: 2,
+      image: "/hero-campaign.png",
+      subtitle: t('campaignSubtitle'),
+      title: t('campaignTitle'),
+      desc: t('campaignDesc'),
+      btnText: t('campaignBtn'),
+      btnLink: "https://www.instagram.com/usaksacprotez/"
+    },
+    {
+      id: 3,
+      image: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=1920&q=80",
+      subtitle: t('heroSubtitle'),
+      title: t('heroTitle'),
+      desc: t('heroDesc'),
+      btnText: t('heroBtn'),
+      btnLink: "https://wa.me/905425209464"
+    }
+  ];
 
   // Auto-play
   useEffect(() => {

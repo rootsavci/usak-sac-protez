@@ -1,60 +1,62 @@
 import styles from './page.module.css';
 import Link from 'next/link';
 import HeroSlider from '@/components/HeroSlider';
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
+  const t = useTranslations('Home');
   return (
     <div className={styles.main}>
       <HeroSlider />
 
       <section id="hizmetler" className={styles.section}>
         <div className="container">
-          <h2 className="section-title">Saçlarınız İçin Yeniliklerimiz</h2>
+          <h2 className="section-title">{t('innovations')}</h2>
           <div className="section-divider"></div>
           <p className={styles.sectionSubtitle}>
-            Her bir saç teliniz bizim için çok değerlidir, hayallerinizi karşılamak için buradayız!
+            {t('subtitle')}
           </p>
           
           <div className={styles.servicesGrid}>
             <div className={styles.serviceItem}>
-              <h3 className={styles.serviceTitle}>SAÇ ANALİZİ VE BAKIMI</h3>
+              <h3 className={styles.serviceTitle}>{t('service1Title')}</h3>
               <p className={styles.serviceDesc}>
-                Sağlıklı ve ışıldayan saçlara kavuşmanızı sağlamak ve saç dökülmesini durdurabilmek için bilimsel analizler ve size özel saç bakım terapileri...
+                {t('service1Desc')}
               </p>
             </div>
             
             <div className={styles.serviceItem}>
-              <h3 className={styles.serviceTitle}>KİŞİYE ÖZEL TASARIM</h3>
+              <h3 className={styles.serviceTitle}>{t('service2Title')}</h3>
               <p className={styles.serviceDesc}>
-                Yüz hatlarınıza, yaşınıza ve yaşam tarzınıza en uygun saç stili uzmanlarımız tarafından tasarlanır. Tamamen size özel üretilen, nefes alan ve %100 doğal görünümlü protez saç sistemlerimizle tanışın.
+                {t('service2Desc')}
               </p>
             </div>
 
             <div className={styles.serviceItem}>
-              <h3 className={styles.serviceTitle}>ERKEK, KADIN & ÇOCUK ÇÖZÜMLERİ</h3>
+              <h3 className={styles.serviceTitle}>{t('service3Title')}</h3>
               <p className={styles.serviceDesc}>
-                Her yaşa ve cinsiyete uygun, dökülme tipine özel geliştirilmiş medikal altyapılarımızla; dilediğiniz gibi tarayabileceğiniz, spor yapıp yüzebileceğiniz güvenli ve kalıcı çözümler sunuyoruz.
+                {t('service3Desc')}
               </p>
             </div>
 
             <div className={styles.serviceItem}>
-              <h3 className={styles.serviceTitle}>%100 GERÇEK İNSAN SAÇI KALİTESİ</h3>
+              <h3 className={styles.serviceTitle}>{t('service4Title')}</h3>
               <p className={styles.serviceDesc}>
-                Sentetik hiçbir materyal içermeyen, en üst segment %100 gerçek insan saçları kullanılarak hazırlanan sistemlerimiz, kendi saçınızdan asla ayırt edilemez kusursuzlukta bir deneyim yaşatır.
+                {t('service4Desc')}
               </p>
             </div>
 
             <div className={styles.serviceItem}>
-              <h3 className={styles.serviceTitle}>UZMAN KADRO & GÜVENİLİR HİZMET</h3>
+              <h3 className={styles.serviceTitle}>{t('service5Title')}</h3>
               <p className={styles.serviceDesc}>
-                Alanında yetkin, yenilikçi saç trendlerini yakından takip eden profesyonel ekibimizle; ilk analizden periyodik bakımlarınıza kadar her adımda size en üst düzey konforu ve güveni sağlıyoruz.
+                {t('service5Desc')}
               </p>
             </div>
 
             <div className={styles.serviceItem}>
-              <h3 className={styles.serviceTitle}>MEDİKAL ONAYLI ÜRÜNLER</h3>
+              <h3 className={styles.serviceTitle}>{t('service6Title')}</h3>
               <p className={styles.serviceDesc}>
-                Uygulamalarımızda kullandığımız tüm sabitleyici solüsyon, bant ve bakım ürünleri dermatolojik testlerden geçmiş, FDA onaylı ve cildinizle tam uyumlu medikal ürünlerdir.
+                {t('service6Desc')}
               </p>
             </div>
           </div>

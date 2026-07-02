@@ -5,22 +5,27 @@ import pageStyles from '../page.module.css';
 import styles from './products.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
-const dummyProducts = [
-  { id: 1, name: 'Premium Doğal Protez Saç', category: 'Protez Saçlar', desc: '%100 doğal insan saçı, nefes alabilen özel alt yapı.', price: '12.500 TL', image: 'https://images.unsplash.com/photo-1595628540960-d2c6c06a382e?auto=format&fit=crop&q=80&w=600', isPopular: true },
-  { id: 2, name: 'Ultra Tutucu Amerikan Bant', category: 'Bantlar', desc: 'Suya ve tere dayanıklı, 4 haftaya kadar kalıcılık.', price: '450 TL', image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=600' },
-  { id: 3, name: 'Protez Saç Şampuanı', category: 'Bakım Ürünleri', desc: 'Protez saçı besleyen sülfatsız özel formül.', price: '350 TL', image: 'https://images.unsplash.com/photo-1629198725916-29177a4a2ec3?auto=format&fit=crop&q=80&w=600', isPopular: true },
-  { id: 4, name: 'Medikal Solvent (Çözücü)', category: 'Bakım Ürünleri', desc: 'Bant kalıntılarını cilde zarar vermeden temizler.', price: '300 TL', image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&q=80&w=600' },
-  { id: 5, name: 'Ön Çizgi Bandı (C-Şekilli)', category: 'Bantlar', desc: 'Ön saç çizgisi için görünmez, şeffaf mat bant.', price: '380 TL', image: 'https://images.unsplash.com/photo-1556228720-192a6af4e863?auto=format&fit=crop&q=80&w=600', isNew: true },
-  { id: 6, name: 'Argan Yağlı Saç Serumu', category: 'Bakım Ürünleri', desc: 'Dolaşmayı önler ve saça doğal parlaklık verir.', price: '400 TL', image: 'https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&q=80&w=600', isNew: true },
+const getDummyProducts = (t: any) => [
+  { id: 1, name: t('urun1Name'), category: t('kategoriProtezSaclar'), desc: t('urun1Desc'), price: '12.500 TL', image: 'https://images.unsplash.com/photo-1595628540960-d2c6c06a382e?auto=format&fit=crop&q=80&w=600', isPopular: true },
+  { id: 2, name: t('urun2Name'), category: t('kategoriBantlar'), desc: t('urun2Desc'), price: '450 TL', image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=600' },
+  { id: 3, name: t('urun3Name'), category: t('kategoriBakimUrunleri'), desc: t('urun3Desc'), price: '350 TL', image: 'https://images.unsplash.com/photo-1629198725916-29177a4a2ec3?auto=format&fit=crop&q=80&w=600', isPopular: true },
+  { id: 4, name: t('urun4Name'), category: t('kategoriBakimUrunleri'), desc: t('urun4Desc'), price: '300 TL', image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&q=80&w=600' },
+  { id: 5, name: t('urun5Name'), category: t('kategoriBantlar'), desc: t('urun5Desc'), price: '380 TL', image: 'https://images.unsplash.com/photo-1556228720-192a6af4e863?auto=format&fit=crop&q=80&w=600', isNew: true },
+  { id: 6, name: t('urun6Name'), category: t('kategoriBakimUrunleri'), desc: t('urun6Desc'), price: '400 TL', image: 'https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&q=80&w=600', isNew: true },
 ];
 
-const categories = ['Tümü', 'Protez Saçlar', 'Bakım Ürünleri', 'Bantlar'];
+const getCategories = (t: any) => [t('kategoriTumu'), t('kategoriProtezSaclar'), t('kategoriBakimUrunleri'), t('kategoriBantlar')];
 
 export default function GuncelSatilikUrunler() {
-  const [activeCategory, setActiveCategory] = useState('Tümü');
+  const t = useTranslations('Pages');
+  const dummyProducts = getDummyProducts(t);
+  const categories = getCategories(t);
 
-  const filteredProducts = activeCategory === 'Tümü' 
+  const [activeCategory, setActiveCategory] = useState(t('kategoriTumu'));
+
+  const filteredProducts = activeCategory === t('kategoriTumu')
     ? dummyProducts 
     : dummyProducts.filter(p => p.category === activeCategory);
 
@@ -37,10 +42,10 @@ export default function GuncelSatilikUrunler() {
           <div className={styles.breadcrumb}>
             <Link href="/">Anasayfa</Link>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            <span>Güncel Satılık Ürünler</span>
+            <span>{t('satilikUrunlerTitle')}</span>
           </div>
-          <h1 className={styles.titleAlt}>Güncel Satılık <span>Ürünler</span></h1>
-          <p className={styles.subtitleAlt}>En kaliteli protez saç bakım ve uygulama ürünlerimiz</p>
+          <h1 className={styles.titleAlt}>{t('satilikUrunlerTitle').split(' ').map((w,i,arr) => i === arr.length-1 ? <span key={i}>{w}</span> : w + ' ')}</h1>
+          <p className={styles.subtitleAlt}>{t('satilikUrunlerSubtitle')}</p>
         </div>
       </section>
 
@@ -64,8 +69,8 @@ export default function GuncelSatilikUrunler() {
           <div className={styles.productsContainer}>
             {filteredProducts.map(product => (
               <div key={product.id} className={styles.productCard}>
-                {product.isPopular && <div className={styles.specialBadge}>🔥 Çok Satan</div>}
-                {product.isNew && <div className={`${styles.specialBadge} ${styles.newBadge}`}>✨ Yeni</div>}
+                {product.isPopular && <div className={styles.specialBadge}>🔥 {t('cokSatan')}</div>}
+                {product.isNew && <div className={`${styles.specialBadge} ${styles.newBadge}`}>✨ {t('yeni')}</div>}
                 <div className={styles.imageWrapper}>
                   <Image 
                     src={product.image} 
@@ -81,7 +86,7 @@ export default function GuncelSatilikUrunler() {
                   <p className={styles.productDesc}>{product.desc}</p>
                   
                   <div className={styles.priceWrapper}>
-                    <span className={styles.priceLabel}>Fiyat:</span>
+                    <span className={styles.priceLabel}>{t('fiyatLabel')}</span>
                     <span className={styles.price}>{product.price}</span>
                   </div>
 

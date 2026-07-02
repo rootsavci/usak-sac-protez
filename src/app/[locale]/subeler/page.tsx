@@ -1,7 +1,9 @@
 import styles from './page.module.css';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 export default function Subeler() {
+  const t = useTranslations('Home');
   return (
     <div className={styles.main}>
       <header className={styles.pageHeader}>
@@ -9,7 +11,7 @@ export default function Subeler() {
           <div className={styles.breadcrumb}>
             <Link href="/">Anasayfa</Link>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            <span>Şubeler</span>
+            <span>{t('branchesTitle')}</span>
           </div>
           <h1 className={styles.pageTitle} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--brand-primary)' }}>
@@ -27,18 +29,17 @@ export default function Subeler() {
             
             {/* Uşak Merkez Şubesi */}
             <div className={styles.card}>
-              <h3 className={styles.cardTitle}>UŞAK MERKEZ ŞUBESİ</h3>
+              <h3 className={styles.cardTitle}>{t('merkez')}</h3>
               <div className={styles.cardInfo}>
                 <div className={styles.infoLine}>
                   <strong>P :</strong> <a href="tel:+905425209464" style={{ color: 'inherit' }}>+90 (542) 520 94 64</a>
                 </div>
                 <div className={styles.infoLine}>
-                  Kurtuluş, Çakaloz Sk. NO:16 KAT:1 DAİRE:2<br />
-                  64100 MERKEZ/Uşak, Türkiye
+                  {t('address').split('\n').map((line, i) => <span key={i}>{line}<br/></span>)}
                 </div>
                 <div className={styles.infoLine}>
-                  <strong>H.İçi Çalışma Saati :</strong> 09:00 - 19:00<br />
-                  <strong>H.Sonu Çalışma Saati :</strong> 09:00 - 19:00 (Cmts)
+                  <strong>{t('weekday')}</strong> {t('weekdayTime')}<br />
+                  <strong>{t('weekend')}</strong> {t('weekendTime')}
                 </div>
               </div>
               <a href="mailto:info@usakprotez.com" className={styles.contactBtn}>
@@ -52,14 +53,13 @@ export default function Subeler() {
 
             {/* Yakında Açılacak Şube Placeholder (İstenirse kaldırılabilir, ama tasarımda 3 tane yan yanaydı. Doldurmak için eklendi) */}
             <div className={styles.card} style={{ opacity: 0.7 }}>
-              <h3 className={styles.cardTitle}>İZMİR ŞUBESİ (YAKINDA)</h3>
+              <h3 className={styles.cardTitle}>{t('izmir')}</h3>
               <div className={styles.cardInfo}>
                 <div className={styles.infoLine}>
-                  <strong>P :</strong> Çok Yakında Hizmetinizde
+                  <strong>P :</strong> {t('soon')}
                 </div>
                 <div className={styles.infoLine}>
-                  İzmir bölgesindeki yeni şubemizle<br />
-                  yakında sizlerleyiz.
+                  {t('izmirDesc').split('\n').map((line, i) => <span key={i}>{line}<br/></span>)}
                 </div>
                 <div className={styles.infoLine}>
                   <strong>H.İçi Çalışma Saati :</strong> -<br />
@@ -77,14 +77,13 @@ export default function Subeler() {
 
             {/* Yakında Açılacak Şube Placeholder */}
             <div className={styles.card} style={{ opacity: 0.7 }}>
-              <h3 className={styles.cardTitle}>DENİZLİ ŞUBESİ (YAKINDA)</h3>
+              <h3 className={styles.cardTitle}>{t('denizli')}</h3>
               <div className={styles.cardInfo}>
                 <div className={styles.infoLine}>
                   <strong>P :</strong> Çok Yakında Hizmetinizde
                 </div>
                 <div className={styles.infoLine}>
-                  Denizli bölgesindeki yeni şubemizle<br />
-                  yakında sizlerleyiz.
+                  {t('denizliDesc').split('\n').map((line, i) => <span key={i}>{line}<br/></span>)}
                 </div>
                 <div className={styles.infoLine}>
                   <strong>H.İçi Çalışma Saati :</strong> -<br />
