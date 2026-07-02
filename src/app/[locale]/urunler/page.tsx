@@ -1,8 +1,11 @@
+import { setRequestLocale } from 'next-intl/server';
 import styles from './page.module.css';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
-export default function Urunler() {
+export default async function Urunler({ params }: { params: Promise<{locale: string}> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = useTranslations('Pages');
   return (
     <div className={styles.main}>

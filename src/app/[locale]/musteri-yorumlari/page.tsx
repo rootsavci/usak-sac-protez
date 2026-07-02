@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import styles from './page.module.css';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
@@ -8,7 +9,9 @@ const AvatarIcon = () => (
   </svg>
 );
 
-export default function MusteriYorumlari() {
+export default async function MusteriYorumlari({ params }: { params: Promise<{locale: string}> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = useTranslations('Pages');
 
   return (
