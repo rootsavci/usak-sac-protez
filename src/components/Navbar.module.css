@@ -256,11 +256,13 @@
     padding: 8px;
     border-radius: 50%;
     background-color: rgba(212, 175, 55, 0.1);
+    -webkit-tap-highlight-color: transparent;
   }
 
   .mobileMenuBtn {
     display: block;
     margin: 0;
+    -webkit-tap-highlight-color: transparent;
   }
   
   .navLinks { 
