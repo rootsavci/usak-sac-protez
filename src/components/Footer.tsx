@@ -1,10 +1,13 @@
 "use client";
 
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { useState } from 'react';
 import styles from './Footer.module.css';
+import { useTranslations } from 'next-intl';
 
 export default function Footer() {
+  const t = useTranslations('Nav');
+  const tFooter = useTranslations('Footer');
   const [showToast, setShowToast] = useState(false);
 
   return (
@@ -18,13 +21,12 @@ export default function Footer() {
               </div>
             </Link>
             <p>
-              Uşak'ta doğal görünümlü, modern ve klinik standartlarında saç protezi hizmetleri.
-              Özgüveninizi yeniden keşfedin.
+              {tFooter('desc')}
             </p>
           </div>
           
             <div className={styles.contact}>
-              <h3 className={styles.title}>İletişim</h3>
+              <h3 className={styles.title}>{t('contact')}</h3>
               <div className={styles.links}>
                 <a 
                   href="tel:+905425209464"
@@ -52,8 +54,7 @@ export default function Footer() {
                     <circle cx="12" cy="10" r="3"></circle>
                   </svg>
                   <span>
-                    Kurtuluş, Çakaloz Sk. NO:16 KAT:1 DAİRE:2,<br/>
-                    64100 MERKEZ/Uşak, Türkiye
+                    {tFooter('address1')}<br/>{tFooter('address2')}
                   </span>
                 </div>
                 <a href="https://www.instagram.com/usaksacprotez/" target="_blank" rel="noopener noreferrer" className={styles.link}>
@@ -70,8 +71,8 @@ export default function Footer() {
           <div className={styles.quickLinks}>
             <h3 className={styles.title}>Hızlı Bağlantılar</h3>
             <div className={styles.links}>
-              <Link href="/uygulama-sureci" className={styles.link}>Uygulama Süreci</Link>
-              <Link href="/hakkimizda" className={styles.link}>Hakkımızda</Link>
+              <Link href="/uygulama-sureci" className={styles.link}>{t('applicationProcess')}</Link>
+              <Link href="/hakkimizda" className={styles.link}>{t('aboutUs')}</Link>
             </div>
           </div>
         </div>

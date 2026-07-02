@@ -4,7 +4,7 @@ import { useState } from 'react';
 import pageStyles from '../page.module.css';
 import styles from './products.module.css';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
 const getDummyProducts = (t: any) => [

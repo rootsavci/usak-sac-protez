@@ -1,5 +1,5 @@
 import styles from './page.module.css';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
 export default function Subeler() {
@@ -18,7 +18,7 @@ export default function Subeler() {
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
               <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
-            Şubeler
+            {t('branchesTitle')}
           </h1>
         </div>
       </header>
@@ -47,7 +47,7 @@ export default function Subeler() {
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
-                İLETİŞİM
+                {t('contactBtn')}
               </a>
             </div>
 

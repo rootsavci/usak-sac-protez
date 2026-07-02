@@ -1,5 +1,5 @@
 import styles from './page.module.css';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import FAQAccordion from '@/components/FAQAccordion';
 import { useTranslations } from 'next-intl';
 
