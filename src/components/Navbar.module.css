@@ -147,6 +147,37 @@
   color: white;
 }
 
+.toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background-color: var(--brand-primary);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+  z-index: 1000;
+  animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(20px); }
+}
+
+.mobileActions {
+  display: none;
+}
+
 /* Dropdown Menu */
 .dropdownContainer {
   position: relative;
@@ -206,10 +237,30 @@
 @media (max-width: 960px) {
   .topbar { display: none; }
   
-  .mobileMenuBtn {
-    display: block;
+  .mobileActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     margin-left: auto;
     margin-right: 1rem;
+  }
+
+  .mobilePhoneBtn {
+    background: transparent;
+    border: none;
+    color: var(--brand-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: rgba(212, 175, 55, 0.1);
+  }
+
+  .mobileMenuBtn {
+    display: block;
+    margin: 0;
   }
   
   .navLinks { 
@@ -264,4 +315,24 @@
   .navAction {
     display: none;
   }
+
+  .toast {
+    top: auto;
+    bottom: 30px;
+    right: 50%;
+    transform: translateX(50%);
+    width: max-content;
+    max-width: 90vw;
+    animation: slideUpMobile 0.3s ease, fadeOutMobile 0.3s ease 2.7s forwards;
+  }
+}
+
+@keyframes slideUpMobile {
+  from { transform: translate(50%, 50px); opacity: 0; }
+  to { transform: translate(50%, 0); opacity: 1; }
+}
+
+@keyframes fadeOutMobile {
+  from { opacity: 1; transform: translate(50%, 0); }
+  to { opacity: 0; transform: translate(50%, 20px); }
 }
