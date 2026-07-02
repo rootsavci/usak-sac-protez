@@ -171,8 +171,7 @@
   border-top: 2px solid var(--brand-primary);
 }
 
-.dropdownContainer:hover .dropdown,
-.dropdownContainer:focus-within .dropdown {
+.dropdown.dropdownActive {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -253,9 +252,7 @@
     background: var(--bg-secondary);
   }
 
-  .dropdownContainer:hover .dropdown,
-  .dropdownContainer:active .dropdown,
-  .dropdownContainer:focus-within .dropdown {
+  .dropdown.dropdownActive {
     display: block;
   }
 

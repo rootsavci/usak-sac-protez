@@ -1,17 +1,50 @@
 "use client";
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
   }, [pathname]);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (!(e.target as Element).closest(`.${styles.dropdownContainer}`)) {
+        setActiveDropdown(null);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
+
+  const handleMouseEnter = (menu: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setActiveDropdown(menu);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 150);
+  };
+
+  const toggleDropdown = (e: React.MouseEvent, menu: string) => {
+    e.preventDefault();
+    if (activeDropdown === menu) {
+      setActiveDropdown(null);
+    } else {
+      setActiveDropdown(menu);
+    }
+  };
 
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   return (
@@ -67,18 +100,40 @@ export default function Navbar() {
           <div className={`${styles.navLinks} ${isMobileMenuOpen ? styles.mobileOpen : ''}`}>
             <Link href="/" className={styles.link}>ANASAYFA</Link>
             {/* Dropdown Menu for Kurumsal */}
-            <div className={styles.dropdownContainer}>
-              <span className={styles.link} style={{ cursor: 'pointer' }} tabIndex={0}>KURUMSAL</span>
-              <div className={styles.dropdown}>
+            <div 
+              className={styles.dropdownContainer}
+              onMouseEnter={() => handleMouseEnter('kurumsal')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span 
+                className={styles.link} 
+                style={{ cursor: 'pointer' }} 
+                tabIndex={0}
+                onClick={(e) => toggleDropdown(e, 'kurumsal')}
+              >
+                KURUMSAL
+              </span>
+              <div className={`${styles.dropdown} ${activeDropdown === 'kurumsal' ? styles.dropdownActive : ''}`}>
                 <Link href="/hakkimizda" className={styles.dropdownLink}>Hakkımızda</Link>
                 <Link href="/uygulama-sureci" className={styles.dropdownLink}>Uygulama Süreci</Link>
                 <Link href="/sertifikalarimiz" className={styles.dropdownLink}>Sertifikalarımız</Link>
               </div>
             </div>
             {/* Dropdown Menu for Protez Saç */}
-            <div className={styles.dropdownContainer}>
-              <span className={styles.link} style={{ cursor: 'pointer' }} tabIndex={0}>PROTEZ SAÇ</span>
-              <div className={styles.dropdown}>
+            <div 
+              className={styles.dropdownContainer}
+              onMouseEnter={() => handleMouseEnter('protez-sac')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span 
+                className={styles.link} 
+                style={{ cursor: 'pointer' }} 
+                tabIndex={0}
+                onClick={(e) => toggleDropdown(e, 'protez-sac')}
+              >
+                PROTEZ SAÇ
+              </span>
+              <div className={`${styles.dropdown} ${activeDropdown === 'protez-sac' ? styles.dropdownActive : ''}`}>
                 <Link href="/kadin-protez-sac" className={styles.dropdownLink}>Kadın Protez Saç</Link>
                 <Link href="/cocuk-protez-sac" className={styles.dropdownLink}>Çocuk Protez Saç</Link>
                 <Link href="/kimler-icin-uygun" className={styles.dropdownLink}>Protez Saç Kimler İçin Uygun</Link>
@@ -89,9 +144,20 @@ export default function Navbar() {
             </div>
             
             {/* Dropdown Menu for Hizmetlerimiz */}
-            <div className={styles.dropdownContainer}>
-              <span className={styles.link} style={{ cursor: 'pointer' }} tabIndex={0}>HİZMETLERİMİZ</span>
-              <div className={styles.dropdown}>
+            <div 
+              className={styles.dropdownContainer}
+              onMouseEnter={() => handleMouseEnter('hizmetlerimiz')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span 
+                className={styles.link} 
+                style={{ cursor: 'pointer' }} 
+                tabIndex={0}
+                onClick={(e) => toggleDropdown(e, 'hizmetlerimiz')}
+              >
+                HİZMETLERİMİZ
+              </span>
+              <div className={`${styles.dropdown} ${activeDropdown === 'hizmetlerimiz' ? styles.dropdownActive : ''}`}>
                 <Link href="/sac-analizi" className={styles.dropdownLink}>Saç Analizi</Link>
                 <Link href="/urunler" className={styles.dropdownLink}>Saç Bakım Ürünleri</Link>
               </div>
