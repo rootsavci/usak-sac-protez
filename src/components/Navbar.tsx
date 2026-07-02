@@ -164,18 +164,40 @@ export default function Navbar() {
             </div>
             
             {/* Dropdown Menu for Galeri */}
-            <div className={styles.dropdownContainer}>
-              <span className={styles.link} style={{ cursor: 'pointer' }} tabIndex={0}>GALERİ</span>
-              <div className={styles.dropdown}>
+            <div 
+              className={styles.dropdownContainer}
+              onMouseEnter={() => handleMouseEnter('galeri')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span 
+                className={styles.link} 
+                style={{ cursor: 'pointer' }} 
+                tabIndex={0}
+                onClick={(e) => toggleDropdown(e, 'galeri')}
+              >
+                GALERİ
+              </span>
+              <div className={`${styles.dropdown} ${activeDropdown === 'galeri' ? styles.dropdownActive : ''}`}>
                 <Link href="/oncesi-sonrasi" className={styles.dropdownLink}>Öncesi Sonrası Görseller</Link>
                 <Link href="/musteri-yorumlari" className={styles.dropdownLink}>Müşteri Yorumları</Link>
               </div>
             </div>
             
             {/* Dropdown Menu for İletişim */}
-            <div className={styles.dropdownContainer}>
-              <span className={styles.link} style={{ cursor: 'pointer' }} tabIndex={0}>İLETİŞİM</span>
-              <div className={styles.dropdown}>
+            <div 
+              className={styles.dropdownContainer}
+              onMouseEnter={() => handleMouseEnter('iletisim')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span 
+                className={styles.link} 
+                style={{ cursor: 'pointer' }} 
+                tabIndex={0}
+                onClick={(e) => toggleDropdown(e, 'iletisim')}
+              >
+                İLETİŞİM
+              </span>
+              <div className={`${styles.dropdown} ${activeDropdown === 'iletisim' ? styles.dropdownActive : ''}`}>
                 <Link href="/subeler" className={styles.dropdownLink}>Şubelerimiz</Link>
               </div>
             </div>
