@@ -6,12 +6,12 @@ export default function Sertifikalarimiz() {
     <div className={styles.main}>
       <header className={styles.pageHeader}>
         <div className="container">
-          <h1 className={styles.pageTitle}>Sertifikalarımız</h1>
           <div className={styles.breadcrumb}>
             <Link href="/">Anasayfa</Link>
-            <span>&gt;</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             <span>Sertifikalarımız</span>
           </div>
+          <h1 className={styles.pageTitle}><span>Sertifikalarımız</span></h1>
         </div>
       </header>
 

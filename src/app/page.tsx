@@ -61,23 +61,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="galeri" className={styles.sectionAlt}>
+      <section id="galeri" className={styles.sectionAlt} style={{ paddingTop: '2rem' }}>
         <div className="container">
-          <h2 className="section-title">Video Galerisi</h2>
-          <div className="section-divider"></div>
-
-          <div className={styles.videoGrid}>
-            {[1, 2, 3].map((item) => (
-              <div key={item} className={styles.videoCard}>
-                <div className={styles.videoThumbnail} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#111', aspectRatio: '16/9' }}>
-                  <span style={{ fontSize: '1.5rem', color: 'var(--brand-primary)', fontWeight: 'bold', letterSpacing: '2px' }}>YAKINDA</span>
-                </div>
-                <h3 className={styles.videoTitle} style={{ textAlign: 'center' }}>Yeni Videolarımız Hazırlanıyor</h3>
-                <p className={styles.videoDesc} style={{ textAlign: 'center' }}>
-                  Sizler için en yeni öncesi-sonrası ve bilgilendirme videolarımızın çekimleri devam ediyor. Çok yakında burada olacak.
-                </p>
-              </div>
-            ))}
+          <div style={{ minHeight: '300px' }}>
+            {/* Elfsight Instagram Feed */}
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div className="elfsight-app-2dd3827c-2b95-4b1d-ae59-817ef891217c" data-elfsight-app-lazy></div>
           </div>
         </div>
       </section>

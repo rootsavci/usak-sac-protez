@@ -1,11 +1,13 @@
 "use client";
 
-import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, Link } from '../i18n/routing';
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from './LanguageSwitcher';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
+  const t = useTranslations('Nav');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [showToast, setShowToast] = useState(false);
@@ -91,6 +93,18 @@ export default function Navbar() {
           </Link>
           
           <div className={styles.mobileActions}>
+            <LanguageSwitcher />
+            <a 
+              href="https://wa.me/905425209464"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.mobileWhatsappBtn}
+              aria-label="WhatsApp'tan ulaşın"
+            >
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a7.864 7.864 0 0 1-1.21-4.18c0-4.36 3.55-7.91 7.91-7.91 2.11 0 4.1.82 5.6 2.32 1.5 1.5 2.32 3.49 2.32 5.6 0 4.36-3.55 7.91-7.91 7.91zm4.33-5.91c-.24-.12-1.41-.7-1.63-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.19-.71-.64-1.19-1.44-1.33-1.68-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.69 2.58 4.1 3.62.57.25 1.02.39 1.37.5.58.18 1.11.16 1.53.1.47-.07 1.41-.58 1.61-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/>
+              </svg>
+            </a>
             <a 
               href="tel:+905425209464"
               className={styles.mobilePhoneBtn} 
@@ -112,7 +126,7 @@ export default function Navbar() {
           </div>
 
           <div className={`${styles.navLinks} ${isMobileMenuOpen ? styles.mobileOpen : ''}`}>
-            <Link href="/" className={styles.link}>ANASAYFA</Link>
+            <Link href="/" className={styles.link}>{t('home')}</Link>
             {/* Dropdown Menu for Kurumsal */}
             <div 
               className={styles.dropdownContainer}
@@ -124,13 +138,26 @@ export default function Navbar() {
                 style={{ cursor: 'pointer' }} 
                 tabIndex={0}
                 onClick={(e) => toggleDropdown(e, 'kurumsal')}
-              >
-                KURUMSAL
-              </span>
+              >{t('corporate')}</span>
               <div className={`${styles.dropdown} ${activeDropdown === 'kurumsal' ? styles.dropdownActive : ''}`}>
-                <Link href="/hakkimizda" className={styles.dropdownLink}>Hakkımızda</Link>
-                <Link href="/uygulama-sureci" className={styles.dropdownLink}>Uygulama Süreci</Link>
-                <Link href="/sertifikalarimiz" className={styles.dropdownLink}>Sertifikalarımız</Link>
+                <Link href="/hakkimizda" className={styles.dropdownLink}>{t('aboutUs')}</Link>
+                <Link href="/uygulama-sureci" className={styles.dropdownLink}>{t('applicationProcess')}</Link>
+              </div>
+            </div>
+            {/* Dropdown Menu for Ürünlerimiz */}
+            <div 
+              className={styles.dropdownContainer}
+              onMouseEnter={() => handleMouseEnter('urunlerimiz')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span 
+                className={styles.link} 
+                style={{ cursor: 'pointer' }} 
+                tabIndex={0}
+                onClick={(e) => toggleDropdown(e, 'urunlerimiz')}
+              >{t('ourProducts')}</span>
+              <div className={`${styles.dropdown} ${activeDropdown === 'urunlerimiz' ? styles.dropdownActive : ''}`}>
+                <Link href="/guncel-satilik-urunler" className={styles.dropdownLink}>{t('currentProducts')}</Link>
               </div>
             </div>
             {/* Dropdown Menu for Protez Saç */}
@@ -144,16 +171,14 @@ export default function Navbar() {
                 style={{ cursor: 'pointer' }} 
                 tabIndex={0}
                 onClick={(e) => toggleDropdown(e, 'protez-sac')}
-              >
-                PROTEZ SAÇ
-              </span>
+              >{t('prostheticHair')}</span>
               <div className={`${styles.dropdown} ${activeDropdown === 'protez-sac' ? styles.dropdownActive : ''}`}>
-                <Link href="/kadin-protez-sac" className={styles.dropdownLink}>Kadın Protez Saç</Link>
-                <Link href="/cocuk-protez-sac" className={styles.dropdownLink}>Çocuk Protez Saç</Link>
-                <Link href="/kimler-icin-uygun" className={styles.dropdownLink}>Protez Saç Kimler İçin Uygun</Link>
-                <Link href="/nedir" className={styles.dropdownLink}>Protez Saç Nedir</Link>
-                <Link href="/fiyatlari" className={styles.dropdownLink}>Protez Saç Fiyatları</Link>
-                <Link href="/sss" className={styles.dropdownLink}>SSS</Link>
+                <Link href="/kadin-protez-sac" className={styles.dropdownLink}>{t('womenProsthetic')}</Link>
+                <Link href="/cocuk-protez-sac" className={styles.dropdownLink}>{t('childrenProsthetic')}</Link>
+                <Link href="/kimler-icin-uygun" className={styles.dropdownLink}>{t('whoIsItFor')}</Link>
+                <Link href="/nedir" className={styles.dropdownLink}>{t('whatIsIt')}</Link>
+                <Link href="/fiyatlari" className={styles.dropdownLink}>{t('hairPrices')}</Link>
+                <Link href="/sss" className={styles.dropdownLink}>{t('faq')}</Link>
               </div>
             </div>
             
@@ -168,12 +193,10 @@ export default function Navbar() {
                 style={{ cursor: 'pointer' }} 
                 tabIndex={0}
                 onClick={(e) => toggleDropdown(e, 'hizmetlerimiz')}
-              >
-                HİZMETLERİMİZ
-              </span>
+              >{t('services')}</span>
               <div className={`${styles.dropdown} ${activeDropdown === 'hizmetlerimiz' ? styles.dropdownActive : ''}`}>
-                <Link href="/sac-analizi" className={styles.dropdownLink}>Saç Analizi</Link>
-                <Link href="/urunler" className={styles.dropdownLink}>Saç Bakım Ürünleri</Link>
+                <Link href="/sac-analizi" className={styles.dropdownLink}>{t('hairAnalysis')}</Link>
+                <Link href="/urunler" className={styles.dropdownLink}>{t('hairCareProducts')}</Link>
               </div>
             </div>
             
@@ -188,12 +211,10 @@ export default function Navbar() {
                 style={{ cursor: 'pointer' }} 
                 tabIndex={0}
                 onClick={(e) => toggleDropdown(e, 'galeri')}
-              >
-                GALERİ
-              </span>
+              >{t('gallery')}</span>
               <div className={`${styles.dropdown} ${activeDropdown === 'galeri' ? styles.dropdownActive : ''}`}>
-                <Link href="/oncesi-sonrasi" className={styles.dropdownLink}>Öncesi Sonrası Görseller</Link>
-                <Link href="/musteri-yorumlari" className={styles.dropdownLink}>Müşteri Yorumları</Link>
+                <Link href="/oncesi-sonrasi" className={styles.dropdownLink}>{t('beforeAfter')}</Link>
+                <Link href="/musteri-yorumlari" className={styles.dropdownLink}>{t('reviews')}</Link>
               </div>
             </div>
             
@@ -208,16 +229,15 @@ export default function Navbar() {
                 style={{ cursor: 'pointer' }} 
                 tabIndex={0}
                 onClick={(e) => toggleDropdown(e, 'iletisim')}
-              >
-                İLETİŞİM
-              </span>
+              >{t('contact')}</span>
               <div className={`${styles.dropdown} ${activeDropdown === 'iletisim' ? styles.dropdownActive : ''}`}>
-                <Link href="/subeler" className={styles.dropdownLink}>Şubelerimiz</Link>
+                <Link href="/subeler" className={styles.dropdownLink}>{t('branches')}</Link>
               </div>
             </div>
           </div>
           
-          <div className={styles.navAction}>
+          <div className={styles.navAction} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <LanguageSwitcher />
             <a href="https://wa.me/905425209464" className={styles.contactBtn} target="_blank" rel="noopener noreferrer">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
               RANDEVU AL
@@ -229,7 +249,7 @@ export default function Navbar() {
       {/* Toast Notification */}
       {showToast && (
         <div className={styles.toast}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
           Telefon numarası kopyalandı!
         </div>
       )}

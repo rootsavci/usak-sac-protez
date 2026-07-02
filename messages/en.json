@@ -1,0 +1,36 @@
+{
+  "Nav": {
+    "home": "HOME",
+    "corporate": "CORPORATE",
+    "aboutUs": "About Us",
+    "applicationProcess": "Application Process",
+    "products": "OUR PRODUCTS",
+    "currentProducts": "Current Products For Sale",
+    "prices": "PRICING",
+    "branches": "BRANCHES",
+    "faq": "FAQ",
+    "whatsappRequest": "Request via WhatsApp",
+    "contact": "CONTACT",
+    "quickLinks": "Quick Links",
+    "instagram": "Our Instagram",
+    "services": "OUR SERVICES",
+    "hairAnalysis": "Hair Analysis",
+    "hairCareProducts": "Hair Care Products",
+    "gallery": "GALLERY",
+    "beforeAfter": "Before & After Images",
+    "reviews": "Customer Reviews",
+    "appointment": "BOOK APPOINTMENT",
+    "phoneCopied": "Phone number copied!",
+    "ourProducts": "OUR PRODUCTS",
+    "prostheticHair": "PROSTHETIC HAIR",
+    "womenProsthetic": "Women's Prosthetic Hair",
+    "childrenProsthetic": "Children's Prosthetic Hair",
+    "whoIsItFor": "Who is it for?",
+    "whatIsIt": "What is Prosthetic Hair?",
+    "hairPrices": "Prosthetic Hair Prices"
+  },
+  "Common": {
+    "home": "Home",
+    "comingSoon": "COMING SOON"
+  }
+}

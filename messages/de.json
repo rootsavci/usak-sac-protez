@@ -1,0 +1,36 @@
+{
+  "Nav": {
+    "home": "STARTSEITE",
+    "corporate": "UNTERNEHMEN",
+    "aboutUs": "Über uns",
+    "applicationProcess": "Bewerbungsprozess",
+    "products": "UNSERE PRODUKTE",
+    "currentProducts": "Aktuelle Produkte zum Verkauf",
+    "prices": "PREISE",
+    "branches": "FILIALEN",
+    "faq": "FAQ",
+    "whatsappRequest": "Über WhatsApp anfragen",
+    "contact": "KONTAKT",
+    "quickLinks": "Schnellzugriffe",
+    "instagram": "Unser Instagram",
+    "services": "UNSERE LEISTUNGEN",
+    "hairAnalysis": "Haaranalyse",
+    "hairCareProducts": "Haarpflegeprodukte",
+    "gallery": "GALERIE",
+    "beforeAfter": "Vorher & Nachher Bilder",
+    "reviews": "Kundenbewertungen",
+    "appointment": "TERMIN BUCHEN",
+    "phoneCopied": "Telefonnummer kopiert!",
+    "ourProducts": "UNSERE PRODUKTE",
+    "prostheticHair": "HAARERSATZ",
+    "womenProsthetic": "Damen Haarersatz",
+    "childrenProsthetic": "Kinder Haarersatz",
+    "whoIsItFor": "Für wen ist es geeignet?",
+    "whatIsIt": "Was ist Haarersatz?",
+    "hairPrices": "Preise für Haarersatz"
+  },
+  "Common": {
+    "home": "Startseite",
+    "comingSoon": "DEMNÄCHST"
+  }
+}

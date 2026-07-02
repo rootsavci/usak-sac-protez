@@ -104,10 +104,60 @@
 
 .bottom {
   text-align: center;
-  padding-top: 2rem;
   border-top: 1px solid #333333;
-  color: #888888;
-  font-size: 0.8125rem;
+  padding-top: 2rem;
+  color: #777777;
+  font-size: 0.875rem;
+}
+
+.toast {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  background: #d4af37; /* Altın sarısı arka plan */
+  color: white; /* Beyaz yazı */
+  padding: 16px 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  z-index: 2000;
+  animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+
+@media (max-width: 960px) {
+  .toast {
+    top: auto;
+    bottom: 30px;
+    right: 50%;
+    transform: translateX(50%);
+    width: max-content;
+    max-width: 90vw;
+    animation: slideUpMobile 0.3s ease, fadeOutMobile 0.3s ease 2.7s forwards;
+  }
+}
+
+@keyframes slideUpMobile {
+  from { transform: translate(50%, 50px); opacity: 0; }
+  to { transform: translate(50%, 0); opacity: 1; }
+}
+
+@keyframes fadeOutMobile {
+  from { opacity: 1; transform: translate(50%, 0); }
+  to { opacity: 0; transform: translate(50%, 20px); visibility: hidden; }
 }
 
 @media (max-width: 768px) {

@@ -1,0 +1,323 @@
+.main {
+  flex: 1;
+  padding-top: 110px; /* Offset for topbar + navbar */
+}
+
+/* Hero Section */
+.hero {
+  background-color: #f7ede8; /* A soft, elegant beige/cream background */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  min-height: 500px;
+}
+
+.heroContentWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  padding: 4rem 2rem;
+}
+
+.heroContent {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.heroSubtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.heroDesc {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.primaryBtn {
+  display: inline-block;
+  background-color: var(--brand-primary);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 4px; /* Classic slight radius */
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  transition: var(--transition-smooth);
+}
+
+.primaryBtn:hover {
+  background-color: var(--brand-primary-hover);
+}
+
+.sliderArrow {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: #7cb342; /* A green accent like the reference */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: none;
+}
+
+.sliderArrow:hover {
+  background-color: #689f38;
+}
+
+.heroImageWrapper {
+  flex: 1;
+  position: relative;
+  min-height: 100%;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.campaignOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  text-align: center;
+  max-width: 80%;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.5);
+  animation: float 4s ease-in-out infinite;
+}
+
+.campaignText {
+  font-size: 1.125rem;
+  color: #111;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.campaignText strong {
+  display: block;
+  color: var(--brand-primary);
+  font-size: 1.35rem;
+  margin-top: 0.5rem;
+}
+
+@keyframes float {
+  0% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, -55%); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+/* Polarod Frame Element (Decorative) */
+.polaroid {
+  position: absolute;
+  top: 15%;
+  left: -50px;
+  background: white;
+  padding: 10px 10px 30px 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transform: rotate(-10deg);
+  z-index: 5;
+  width: 200px;
+}
+.polaroid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Shared Section Styles */
+.section {
+  padding: 6rem 0;
+  background: var(--bg-primary);
+}
+
+.sectionAlt {
+  padding: 6rem 0;
+  background: var(--bg-secondary);
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+/* Text Services Grid */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 2.5rem;
+}
+
+.serviceItem {
+  text-align: left;
+}
+
+.serviceTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.serviceDesc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+/* Video Gallery Section */
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.videoCard {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.videoThumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.videoThumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  opacity: 0.8;
+}
+
+.videoThumbnail:hover img {
+  transform: scale(1.05);
+  opacity: 0.6;
+}
+
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+.videoCard:hover .playButton {
+  transform: scale(1.1);
+  background: white;
+  color: var(--brand-primary);
+}
+
+.playButton svg {
+  margin-left: 4px; /* visually center the play triangle */
+  fill: var(--text-primary);
+}
+
+.videoTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.videoDesc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+  }
+  .heroContentWrapper {
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  .heroContent {
+    margin: 0 auto;
+  }
+  .sliderArrow {
+    display: none;
+  }
+  .heroImageWrapper {
+    height: 400px;
+    width: 100%;
+  }
+  .polaroid {
+    display: none;
+  }
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .videoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+  .videoGrid {
+    grid-template-columns: 1fr;
+  }
+}

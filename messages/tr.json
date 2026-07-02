@@ -1,0 +1,36 @@
+{
+  "Nav": {
+    "home": "ANASAYFA",
+    "corporate": "KURUMSAL",
+    "aboutUs": "Hakkımızda",
+    "applicationProcess": "Uygulama Süreci",
+    "products": "ÜRÜNLERİMİZ",
+    "currentProducts": "Güncel Satılık Ürünler",
+    "prices": "FİYATLARI",
+    "branches": "ŞUBELER",
+    "faq": "SSS",
+    "whatsappRequest": "WhatsApp'tan İste",
+    "contact": "İLETİŞİM",
+    "quickLinks": "Hızlı Bağlantılar",
+    "instagram": "Instagram Hesabımız",
+    "services": "HİZMETLERİMİZ",
+    "hairAnalysis": "Saç Analizi",
+    "hairCareProducts": "Saç Bakım Ürünleri",
+    "gallery": "GALERİ",
+    "beforeAfter": "Öncesi Sonrası Görseller",
+    "reviews": "Müşteri Yorumları",
+    "appointment": "RANDEVU AL",
+    "phoneCopied": "Telefon numarası kopyalandı!",
+    "ourProducts": "ÜRÜNLERİMİZ",
+    "prostheticHair": "PROTEZ SAÇ",
+    "womenProsthetic": "Kadın Protez Saç",
+    "childrenProsthetic": "Çocuk Protez Saç",
+    "whoIsItFor": "Protez Saç Kimler İçin Uygun",
+    "whatIsIt": "Protez Saç Nedir",
+    "hairPrices": "Protez Saç Fiyatları"
+  },
+  "Common": {
+    "home": "Anasayfa",
+    "comingSoon": "YAKINDA"
+  }
+}
